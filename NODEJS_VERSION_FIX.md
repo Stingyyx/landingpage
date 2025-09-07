@@ -2,54 +2,62 @@
 
 ## 🚨 Issue Resolved
 
-**Problem:** Netlify was trying to use Node.js version `v20.19.5` which doesn't exist, causing build failures.
+**Problem:** Netlify was using Node.js version `v20.18.0`, but Vite requires Node.js version `20.19+` or `22.12+`, causing build failures.
 
-**Solution:** Updated to use valid Node.js version `v20.18.0` (LTS).
+**Solution:** Updated to use Node.js version `v22.14.0` (meets Vite requirements) and installed terser dependency.
 
 ## ✅ What Was Fixed
 
 ### **1. Netlify Configuration (`netlify.toml`)**
 ```toml
 [build.environment]
-  NODE_VERSION = "20.18.0"  # Changed from "20" to specific valid version
+  NODE_VERSION = "22.14.0"  # Updated to meet Vite requirements (20.19+ or 22.12+)
   NPM_VERSION = "10"
 ```
 
 ### **2. Node Version Manager (`.nvmrc`)**
 ```
-20.18.0
+22.14.0
 ```
 
 ### **3. Package.json Engine Requirements**
 ```json
 "engines": {
-  "node": ">=20.18.0",
+  "node": ">=22.14.0",
   "npm": ">=10.0.0"
+}
+```
+
+### **4. Terser Dependency (Required by Vite)**
+```json
+"devDependencies": {
+  "terser": "^5.x.x"  // Added for Vite minification
 }
 ```
 
 ## 🎯 Valid Node.js Versions
 
-### **Current LTS Versions (Recommended):**
-- **v20.18.0** ✅ (Current LTS)
-- **v18.20.4** ✅ (Previous LTS)
-- **v22.14.0** ✅ (Current)
+### **Vite-Compatible Versions (Required):**
+- **v22.14.0** ✅ (Current - meets Vite 22.12+ requirement)
+- **v20.19.0+** ✅ (Meets Vite 20.19+ requirement)
+- **v22.12.0+** ✅ (Meets Vite 22.12+ requirement)
 
-### **Invalid Versions (Avoid):**
+### **Incompatible Versions (Avoid):**
+- **v20.18.0** ❌ (Too old for Vite 7.x)
+- **v18.x.x** ❌ (Too old for Vite 7.x)
 - **v20.19.5** ❌ (Does not exist)
-- **v20.19.x** ❌ (Does not exist)
 
 ## 🚀 Deployment Instructions
 
 ### **For Netlify:**
 
 1. **Automatic Detection:**
-   - Netlify will now use Node.js v20.18.0 automatically
-   - Build should complete successfully
+   - Netlify will now use Node.js v22.14.0 automatically
+   - Build should complete successfully with Vite compatibility
 
 2. **Manual Override (if needed):**
    - Go to Site Settings → Environment Variables
-   - Add: `NODE_VERSION` = `20.18.0`
+   - Add: `NODE_VERSION` = `22.14.0`
 
 3. **Redeploy:**
    - Trigger a new deployment
@@ -82,8 +90,8 @@
 ### **1. Check Build Logs:**
 Look for this in Netlify build logs:
 ```
-Downloading and installing node v20.18.0...
-Now using node v20.18.0 (npm v10.x.x)
+Downloading and installing node v22.14.0...
+Now using node v22.14.0 (npm v10.x.x)
 ```
 
 ### **2. Verify Build Success:**
@@ -116,11 +124,14 @@ npm run build
 
 ### **Common Issues:**
 
-#### **Issue: "Node version not found"**
-- **Solution:** Use exact version `20.18.0` instead of `20`
+#### **Issue: "Vite requires Node.js version 20.19+ or 22.12+"**
+- **Solution:** Use Node.js v22.14.0 which meets Vite requirements
+
+#### **Issue: "terser not found"**
+- **Solution:** Install terser as dev dependency: `npm install --save-dev terser`
 
 #### **Issue: "Build timeout"**
-- **Solution:** Node.js v20.18.0 is faster and more stable
+- **Solution:** Node.js v22.14.0 is faster and more stable
 
 #### **Issue: "Dependency conflicts"**
 - **Solution:** Clear cache and redeploy with correct Node version
