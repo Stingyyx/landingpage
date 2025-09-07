@@ -44,7 +44,7 @@
 
 # Headers for the APK file
 [[headers]]
-  for = "/UniGO.apk"
+  # Removed local APK file dependency - now using external Google Drive link
   [headers.values]
     Content-Type = "application/vnd.android.package-archive"
     Cache-Control = "public, max-age=86400"

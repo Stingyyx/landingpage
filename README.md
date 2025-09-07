@@ -19,5 +19,5 @@ npm run preview
 ```
 
 ## Notes
-- Place your Android APK at `public/UniGO.apk` to enable the download button.
+- The Android APK download now uses a direct Google Drive link - no local file needed.
 - Update the iOS link in `src/LandingPage.tsx` when the App Store URL is available.
