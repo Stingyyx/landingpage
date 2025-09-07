@@ -736,7 +736,7 @@ export default function LandingPage() {
                     
                     {/* Download Button */}
                     <motion.a
-                      href="https://apps.apple.com/il/app/unigo-%D9%8A%D9%88%D9%86%D9%8A-%D8%AC%D9%88/id6749590629"
+            href="https://apps.apple.com/il/app/unigo-%D9%8A%D9%88%D9%86%D9%8A-%D8%AC%D9%88/id6749590629"
                       whileHover={{ scale: 1.05, y: -4 }}
                       whileTap={{ scale: 0.95 }}
                       className="relative block w-full ultimate-glass rounded-2xl px-8 py-6 text-center font-black text-lg sm:text-xl text-white border border-white/30 bg-gradient-to-r from-white/15 to-white/10 hover:from-white/25 hover:to-white/20 transition-all duration-500 overflow-hidden"
@@ -1229,8 +1229,8 @@ export default function LandingPage() {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   className="absolute -top-1 -right-1 w-2 h-2 bg-white/60 rounded-full"
-                />
-      </div>
+            />
+          </div>
       
     <motion.a
               href="/UniGO.apk" 
@@ -1239,7 +1239,7 @@ export default function LandingPage() {
                 className="glass px-6 py-3 rounded-lg text-white font-bold text-base hover:mega-glow transition-all duration-300 shadow-2xl"
               >
                 {t.downloadAndroid}
-              </motion.a>
+    </motion.a>
             </motion.div>
 
             {/* CENTRAL EPIC DIVIDER */}

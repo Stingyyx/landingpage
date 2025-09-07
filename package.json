@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:netlify": "npm run build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "netlify:dev": "netlify dev",
+    "netlify:deploy": "netlify deploy --prod"
   },
   "dependencies": {
     "framer-motion": "^12.23.12",
