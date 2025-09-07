@@ -42,12 +42,7 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Headers for the APK file
-[[headers]]
-  # Removed local APK file dependency - now using external Google Drive link
-  [headers.values]
-    Content-Type = "application/vnd.android.package-archive"
-    Cache-Control = "public, max-age=86400"
+# APK file headers removed - now using external Google Drive link
 
 # Form handling (if needed for future features)
 [build.processing]
