@@ -24,8 +24,8 @@ dist-ssr
 *.sw?
 
 # Large files that exceed GitHub's 100MB limit
-public/UniGO.apk
-*.apk
+# public/UniGO.apk  # Allow APK for Netlify deployment
+# *.apk  # Allow APK for Netlify deployment
 *.ipa
 *.dmg
 *.exe
