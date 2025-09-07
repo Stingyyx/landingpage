@@ -7,7 +7,7 @@
   
   # Node.js version for optimal performance
   [build.environment]
-    NODE_VERSION = "20"
+    NODE_VERSION = "20.18.0"
     NPM_VERSION = "10"
 
 # Redirect rules for SPA (Single Page Application)
