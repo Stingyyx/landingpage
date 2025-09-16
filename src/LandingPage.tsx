@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
-  FaAndroid, FaApple, FaUtensils, FaBus, FaBookOpen, FaCalendarCheck, FaRoute,
-  FaPhone, FaBell, FaSearch, FaComments, FaNewspaper, FaBriefcase,
-  FaAddressBook, FaUserFriends, FaIdCard, FaTrophy, FaChevronDown, FaArrowDown,
-  FaDownload, FaRocket, FaHeart, FaShare, FaPlay, FaMobile, FaGraduationCap,
-  FaMapMarkerAlt, FaCoffee, FaUsers, FaLightbulb, FaFire
+  FaAndroid, FaApple, FaUtensils, FaBus, FaBookOpen, FaChevronDown,
+  FaDownload, FaRocket, FaHeart, FaUsers, FaLightbulb, FaFire
 } from 'react-icons/fa'
 
 const translations = {
@@ -168,22 +165,10 @@ export default function LandingPage() {
   const t = translations[language]
   const isRTL = language === 'ar'
   
-  const [isMobile, setIsMobile] = useState(true)
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 300], [0, 50])
   const y2 = useTransform(scrollY, [0, 300], [0, -50])
 
-  useEffect(() => {
-    const checkDevice = () => {
-      const width = window.innerWidth
-      const mobile = width < 1024 // Treat most devices as mobile for better experience
-      setIsMobile(mobile)
-    }
-    
-    checkDevice()
-    window.addEventListener('resize', checkDevice)
-    return () => window.removeEventListener('resize', checkDevice)
-  }, [])
 
   return (
     <div className={`relative min-h-screen w-full overflow-hidden bg-black ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
